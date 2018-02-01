@@ -1,0 +1,10 @@
+admin 
+
+log = Sandy 
+pas = sandy
+
+
+client
+
+log = client
+pas = sandy

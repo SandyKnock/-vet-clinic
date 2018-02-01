@@ -1,0 +1,55 @@
+.sebm-google-map-container {
+  height: 780px;
+}
+
+
+
+#textBar{
+  font-size: 14px;
+  font-weight:bold;
+  font-family:Georgia, "URW Bookman L", Helvetica, Arial, sans-serif;
+  text-align: left;
+  padding: 5px 10px;
+}
+
+
+#clinicBar
+{
+  z-index: 1;
+  background-color: rgba(25, 119, 82, 0.75);
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid #bbb;
+  text-align: left;
+}
+
+#register {
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid #bbb;
+  font-size: 10px;
+  color: #fff;
+  background-color: #49949d;
+}
+
+#clinicBar > button:hover{
+  background-color: #4d609d;
+  border-color: #2d399d;
+}
+
+#imgAnimal{
+  width:310px;
+  height:170px;
+  border-radius: 75px;
+}
+
+div.imgs{
+  background-color: rgb(104, 138, 110);
+  border-radius: 54px 52px 7px 7px;
+  text-align: center;
+  padding-bottom: 19px;
+}
+
+div.imgs:hover{
+  background-color: rgb(87, 138, 97);
+}

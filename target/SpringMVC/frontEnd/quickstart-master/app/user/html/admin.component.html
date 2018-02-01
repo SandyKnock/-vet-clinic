@@ -1,0 +1,124 @@
+<body>
+
+
+<div class="generic-container">
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading"><span class="lead">List of Users </span></div>
+    <table id="table" class="table table-hover">
+      <thead >
+      <tr>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Email</th>
+        <th>Логин</th>
+        <th>Пароль</th>
+      </tr>
+      </thead>
+      <tbody >
+        <tr *ngFor="let user of users | orderBy :['id']">
+
+          <td>{{user.id}}</td>
+          <td>{{user.firstName}}</td>
+          <td>{{user.lastName}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.ssoId}}</td>
+          <td>{{user.password}}</td>
+          <td *ngFor="let userProfile of user.userProfiles">{{userProfile.id}}</td>
+          <td *ngFor="let userProfile of user.userProfiles">{{userProfile.type}}</td>
+            <td><button id="button-open"  class="btn btn-success custom-width" (click)="openModal(user,modal)">Редактировать</button></td>
+            <td><button class="btn btn-danger custom-width" (click)="delete(user.id)">Удалить</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="add-button">
+      <button class="btn btn-success custom-width" (click)="delete(add.id)">Добавить</button>
+    </div>
+  </div>
+</div>
+
+
+<div id="g2" class="generic-container">
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading"><span class="lead">Add Elastic Pet</span></div>
+    <table  class="table table-hover">
+      <thead >
+      <tr>
+        <th>id</th>
+        <th>поисковая строка</th>
+      </tr>
+      </thead>
+      <tbody >
+      <tr>
+        <td> <input  #getIdEl  name="id_elastic" value="{{id_el}}" [ngModel]="id_el"
+                    required #id_elastic="ngModel" minlength="1" maxlength="2"  #firstName="ngModel" pattern="[0-9]*" /></td>
+        <td> <input  #getNameEl  name="name_elastic" value="{{name_el}}"  [ngModel]="name_el"
+                    required #name_elastic="ngModel" minlength="1" maxlength="18"  #ssoId="ngModel" pattern="[a-zA-Z]*" /></td>
+        <div class="add-button">
+          <button class="btn btn-success custom-width" [disabled]="!id_elastic.valid || !name_elastic.valid"
+                  block (click)="addElastic(getIdEl.value, getNameEl.value)">Добавить</button>
+        </div>
+      </tr>
+      </tbody>
+
+    </table>
+  </div>
+</div>
+
+<modal #modal >
+  <form #modalForm="ngForm">
+  <modal-header>
+    <h4 class="modal-body" align="center">Редактирование пользователей</h4>
+  </modal-header>
+  <modal-body #modalBody >
+    <div class="main-block" >
+      <div class="block">
+        <label class="label-block">ID</label>
+        <input #getId value="{{user.id}}" />
+      </div>
+      <div class="block">
+        <label class="label-block">Имя</label>
+        <input #getFirstName value="{{user.firstName}}"   />
+      </div>
+      <div class="block">
+        <label class="label-block">Фамилия</label>
+        <input  #getLastName  value="{{user.lastName}}" />
+      </div>
+      <div class="block">
+        <label class="label-block">Email</label>
+        <input #getEmail value="{{user.email}}" />
+      </div>
+      <div class="block">
+        <label class="label-block">Логин</label>
+        <input #getSsoId value="{{user.ssoId}}" />
+      </div>
+      <div class="block">
+        <label class="label-block">Пароль</label>
+        <input #getPassword value="{{user.password}}" />
+      </div>
+      <div class="block">
+        <label class="label-block" >ID_Profile</label>
+        <input #getProfile_id value="{{user.userProfiles[0].id}}" />
+      </div>
+      <div class="block">
+        <label class="label-block">Тип профиля</label>
+        <input #getProfile_type value="{{user.userProfiles[0].type}}" />
+      </div>
+    </div>
+  </modal-body>
+  <modal-footer>
+    <div class="button-block">
+      <div>
+        <button id="save-button" class="btn btn-success" (click)="save(getId.value, getFirstName.value, getLastName.value,
+        getEmail.value, getSsoId.value, getPassword.value, getProfile_id.value, getProfile_type.value)">Save</button>
+      </div>
+      <div>
+        <button id="close-button" class="btn btn-danger" (click)="closeModal(modal)">Close</button>
+      </div>
+    </div>
+  </modal-footer>
+  </form>
+</modal>
+
+</body>

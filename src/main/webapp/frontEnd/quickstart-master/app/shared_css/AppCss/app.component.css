@@ -1,0 +1,30 @@
+div.rollover{
+  background: url(../app/mainPage/html/res/Vistar.png) no-repeat center/contain;
+  display: block;
+  width: 140px;
+  height: 53px;
+  border-radius: 204px;
+}
+
+div.rollover:hover {
+  background: url(../app/mainPage/html/res/Vistar2.png)no-repeat center/contain; /* Путь к файлу с заменяемым рисунком  */
+}
+
+#navTeg .linkButton {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
+#navTeg .linkButton:visited, .linkButton:link {
+  color: #607D8B;
+}
+#navTeg .linkButton:hover {
+  color: #039be5;
+  background-color: #CFD8DC;
+}
+#navTeg .linkButton.active {
+  color: #039be5;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav id="navTeg">
+  <a class="linkButton" routerLink="/pet/{{token}}">Животные</a>
+</nav>
+
+<div class="generic-container">
+  <label class="label-block">Поиск</label>
+  <input #getSearch value="{{search}}" (keyup)="elSearch(getSearch.value)" />
+  <div *ngFor="let name of searchResponse">{{name}}</div>
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading"><span class="lead">Профиль </span></div>
+    <table id="table" class="table table-hover">
+      <thead >
+      <tr>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Email</th>
+        <th>Пароль</th>
+      </tr>
+      </thead>
+      <tbody >
+      <tr *ngIf="user!=undefined">
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.password}}</td>
+        <td><button id="button-open"  class="btn btn-success custom-width" (click)="openModal(user,modal)">Редактировать Профиль</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<modal #modal >
+  <form #modalForm="ngForm" *ngIf="user!=undefined">
+    <modal-header>
+      <h4 class="modal-body" align="center">Редактирование пользователей</h4>
+    </modal-header>
+    <modal-body #modalBody >
+      <div class="main-block" >
+        <div class="block">
+          <label class="label-block">Имя</label>
+          <input #getFirstName value="{{user.firstName}}"   />
+        </div>
+        <div class="block">
+          <label class="label-block">Фамилия</label>
+          <input  #getLastName  value="{{user.lastName}}" />
+        </div>
+        <div class="block">
+          <label class="label-block">Email</label>
+          <input #getEmail value="{{user.email}}" />
+        </div>
+        <div class="block">
+          <label class="label-block">Пароль</label>
+          <input #getPassword value="{{user.password}}" />
+        </div>
+      </div>
+    </modal-body>
+    <modal-footer>
+      <div class="button-block">
+        <div>
+          <button id="save-button" class="btn btn-success" (click)="save(getFirstName.value, getLastName.value,
+        getEmail.value, getPassword.value)">Save</button>
+        </div>
+        <div>
+          <button id="close-button" class="btn btn-danger" (click)="closeModal(modal)">Close</button>
+        </div>
+      </div>
+    </modal-footer>
+  </form>
+</modal>
+
+<div>HELLO</div>
+</body>
+</html>

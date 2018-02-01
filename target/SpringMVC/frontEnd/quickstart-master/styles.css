@@ -1,0 +1,8 @@
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+body {
+  background: #373737 url("app/login/img/bg.png") 0 0 repeat;
+}

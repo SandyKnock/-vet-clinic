@@ -1,0 +1,118 @@
+
+.modal,.table-block,#close-button{
+  background: rgba(0,0,0,0.6);
+  /*position: fixed;*/
+  top:0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.modal-body{
+  background-image: url(../app/pet/img/header_pet.png);
+  font-size: 20px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: rgba(33, 210, 54, 0.88);
+  margin-left: 0.9%;
+  margin-right: 0.9%;
+  border-radius: 0px 50px 0px 50px;
+}
+.textarea-block{
+  width: 100%;
+  background: rgba(49, 75, 68, 0.48);
+  border-radius: 51px 51px 0px 0px;
+  text-align: center;
+}
+#pet-textarea{
+  border-radius: 10px;
+  resize:vertical;
+  max-height:300px;
+  min-height:200px;
+}
+#pet-textarea textarea.horiz {
+  resize:horizontal;
+  max-width:400px;
+  min-width:200px; }
+
+
+
+.table-block{
+  margin: 0.9%;
+  border-radius: 50px 50px;
+  background-image: linear-gradient(to bottom right, rgba(36, 65, 25, 0.6) 40%,rgba(29, 63, 40, 0.1) 44%), url(../app/pet/img/3.png);
+}
+
+.generic-container{
+  /*transform: perspective(900px) rotate3d(22,5,0,43deg);*/
+  border-radius: 0px 40px;
+}
+
+#close-button{
+   /*position: fixed;*/
+   width: 100%;
+   text-align: center;
+   font-family:fantasy;
+   border-radius: 0px 0px 51px 51px;
+   margin-top: 633px;
+   padding: 12px;
+ }
+
+
+#close-button:hover {
+  background: rgba(255, 13, 13, 0.46);
+}
+
+#close-button:active {
+  background: white;
+}
+
+.generic-container{
+  width: inherit !important;
+  margin-right: 20px !important;
+}
+
+.custom-width{
+  width: inherit !important;
+}
+
+.td-image{
+  width: 200px;
+  height: 200px;
+  margin: 4px;
+
+}
+
+.modal-image{
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+}
+
+.img-div{
+  text-align:left;
+  position: fixed;
+  margin: 20px;
+}
+
+/*#generic-container{*/
+/*margin-top: 60px;*/
+/*}*/
+
+/*.label-block {*/
+/*display: inline-block;*/
+/*width: 140px;*/
+/*text-align: right;*/
+/*color: rgba(33, 198, 210, 0.8);*/
+/*}​*/
+
+/*.button-block{*/
+/*background: rgba(235, 255, 53, 0.6);*/
+/*}*/
+
+/*.main-block{*/
+/*width: 100%;*/
+/*background: rgba(255, 176, 190, 0.6);*/
+/*text-align: center;*/
+/*}*/
+
+

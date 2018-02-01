@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav id="navTeg">
+  <a class="linkButton" routerLink="/ClientMainPage/{{token}}">Хозяин</a>
+  <!--<a class="linkButton" routerLink="/login">Логин</a>-->
+</nav>
+
+<div class="generic-container">
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading"><span class="lead">Профиль питомца </span></div>
+    <table id="table" class="table table-hover">
+      <thead >
+      <tr>
+        <!--<th>ID</th>-->
+        <th>История</th>
+        <!--<th>Полная история</th>-->
+        <th>Колличество обращений</th>
+        <th>Дата последнего обращения</th>
+        <th>Имя животного</th>
+        <th>Тип животного</th>
+        <!--<th>client_id</th>-->
+        <!--<th>employee_id</th>-->
+      </tr>
+      </thead>
+      <tbody >
+      <tr *ngFor="let pet of pets | orderBy :['petId']">
+        <!--<td>{{pet.petId}}</td>-->
+        <td>{{pet.history}}</td>
+        <!--<td>{{pet.fullHistory}}</td>-->
+        <td>{{pet.numberOfComplaints}}</td>
+        <td>{{pet.dataLastComplaints}}</td>
+        <td>{{pet.nickName}}</td>
+        <div *ngFor="let img of images">
+        <td *ngIf="img.id == pet.kindOfAnimal"><img class="td-image" src="{{SRC}}{{img.image}}"></td>
+        </div>
+        <!--<td *ngIf="pet.client!=null">{{pet.client.clientId}}</td>-->
+        <!--<td *ngIf="pet.employee!=null">{{pet.employee.employeeId}}</td>-->
+        <td><button id="button-open"  class="btn btn-success custom-width" (click)="openModal(pet,modal)"> Дополнительная информация</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<modal #modal >
+    <modal-header>
+      <h4 class="modal-body" align="center">Редактирование пользователей</h4>
+    </modal-header>
+    <!--<modal-body #modalBody >-->
+      <!--<div class="main-block" >-->
+        <!--<div class="block">-->
+          <!--<textarea >{{pet.fullHistory}}</textarea>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</modal-body>-->
+    <div class="table-block">
+      <div class="textarea-block">
+        <div class="img-div" *ngFor="let img of images">
+          <img class="modal-image" *ngIf="img.id == pet.kindOfAnimal" src="{{SRC}}{{img.image}}">
+        </div>
+       <textarea id="pet-textarea">{{pet.fullHistory}} </textarea>
+      </div>
+      <div class="generic-container" id="generic-container">
+        <div class="panel panel-default">
+          <div class="panel-heading"><span class="lead"> Профиль питомца </span></div>
+          <table class="table table-hover">
+            <thead >
+            <tr>
+              <th>История обращений по животному</th>
+            </tr>
+            </thead>
+            <tbody >
+            <tr >
+              <td>hello</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <button id="close-button" class="btn btn-danger" (click)="closeModal(modal)">Close</button>
+    </div>
+</modal>
+
+</body>
+</html>

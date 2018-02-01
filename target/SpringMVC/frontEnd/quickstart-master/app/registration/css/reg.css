@@ -1,0 +1,8 @@
+.generic-container{
+  width: inherit !important;
+  margin-right: 20px !important; ;
+}
+
+.custom-width{
+  width: inherit !important;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+
+<body>
+
+  <form method="post" action="" class="login">
+    <p>
+
+      <label for="login">Логин:</label>
+      <!--[ngModelOptions]="{standalone: true}"-->
+      <input type="text"  [(ngModel)]="login" name="login"  id="login" value="Sandy" >
+    </p>
+    <p>
+      <label for="password">Пароль:</label>
+      <input type="password" [(ngModel)]="password" name="password" id="password"  value="sandy">
+    </p>
+    <p class="login-submit">
+      <button type="submit" id="login-button" (click)="getParam()"  >Войти</button>
+    </p>
+
+    <p class="forgot-password"><a href="">Забыл пароль?</a></p>
+
+
+  </form>
+</body>
+</html>

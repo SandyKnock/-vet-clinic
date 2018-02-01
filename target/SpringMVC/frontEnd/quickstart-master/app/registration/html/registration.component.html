@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="generic-container">
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading"><span class="lead">Регистрация</span></div>
+    <table id="table" class="table table-hover">
+      <thead >
+      <tr>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Email</th>
+        <th>Логин</th>
+        <th>Пароль</th>
+      </tr>
+      </thead>
+      <tbody >
+      <tr>
+        <!--pattern="[a-zA-Z]*"-->
+        <!--#getFirstName-->
+        <td>
+          <input  #getFirstName name="firstName" value="{{user.firstName}}" [ngModel]="user.firstName"
+                  required minlength="5" maxlength="8"  #firstName="ngModel" pattern="[a-zA-Z]*"/>
+          <small [hidden]="firstName.valid || (firstName.pristine)">
+            <div>(некорректное имя пример:"Alexandr")</div>
+          </small>
+        </td>
+
+        <td><input #getLastName name="lastName"  value="{{user.lastName}}" [ngModel]="user.lastName"
+                   required minlength="5" maxlength="8"  #lastName="ngModel" pattern="[a-zA-Z]*"/>
+          <small [hidden]="lastName.valid || (lastName.pristine)">
+            <div>(некорректная фамилия пример:"Ivanov")</div>
+          </small>
+        </td>
+        <td>
+          <input #getEmail name="email" value="{{user.email}}" [ngModel]="user.email"
+                 required #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+          <small [hidden]="email.valid || (email.pristine)">
+            <div>(некорректнный email пример:"TestUserTomCat@yandex.ru")</div>
+          </small>
+        </td>
+        <td>
+          <input #getSSOId name="ssoId" value="{{user.ssoId}}" [ngModel]="user.ssoId" required minlength="5" maxlength="18"  #ssoId="ngModel" pattern="[a-zA-Z]*" />
+          <small [hidden]="ssoId.valid || (ssoId.pristine)">
+            <div>(некорректный логин пример:"Sandy")</div>
+          </small>
+        </td>
+        <td>
+          <input #getPassword name="password" value="{{user.password}}" [ngModel]="user.password" required minlength="5" maxlength="18"  #password="ngModel" pattern="[0-90a-zA-Z]*" />
+          <small [hidden]="password.valid || (password.pristine)">
+            <div>(некорректнный пароль пример:"SmfT1")</div>
+          </small>
+        </td>
+        <!--<td *ngFor="let userProfile of user.userProfiles">{{userProfile.id}}</td>-->
+        <!--<td *ngFor="let userProfile of user.userProfiles">{{userProfile.type}}</td>-->
+        <td><button id="button-open"   class="btn btn-success custom-width" [disabled]="!firstName.valid || !lastName.valid || !email.valid || !ssoId.valid || !password.valid "
+                    block (click)="registration(getFirstName.value, getLastName.value,
+        getEmail.value, getSSOId.value, getPassword.value)">Регистрация</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</body>
+</html>
